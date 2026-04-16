@@ -1,6 +1,6 @@
 # BSC-Amazon-Rufus-Cosmo
 
-一个面向新手的 Claude Code+SofttimeMCP+Sif MCP 技能，用来分析 Amazon ASIN 在 `COSMO + Rufus + Listing 转化` 上的表现，并输出可以直接落地的改写建议。
+一个面向新手的 Claude Code+Softtime MCP+Sif MCP 技能，用来分析 Amazon ASIN 在 `COSMO + Rufus + Listing 转化` 上的表现，并输出可以直接落地的改写建议。
 
 你可以把它理解成：
 - 先帮你收集产品、评论、关键词、经营侧证据
