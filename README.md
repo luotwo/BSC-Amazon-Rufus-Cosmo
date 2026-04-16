@@ -1,42 +1,42 @@
 # BSC-Amazon-Rufus-Cosmo
 
-A reusable Claude Code skill for auditing Amazon ASINs across `COSMO + Rufus + Listing conversion`, then turning the findings into evidence-based rewrite actions.
+一个可重复使用的 Claude Code 技能，用于围绕 `COSMO + Rufus + Listing 转化` 审计 Amazon ASIN，并输出基于证据的诊断结果与可直接落地的改写方案。
 
-It is designed for workflows like:
-- auditing why an ASIN is not being understood well by Amazon AI search
-- diagnosing Listing visibility, click-through, and conversion gaps
-- rewriting titles, bullets, Q&A, and backend search terms
-- generating image messaging and A+ content directions
-- producing deliverables that an operations team can directly use
+它适合以下工作流：
+- 分析某个 ASIN 为什么不容易被 Amazon AI 搜索理解
+- 诊断 Listing 的曝光、点击和转化问题
+- 重写标题、Bullet、Q&A、Backend Search Terms
+- 生成图片卖点与 A+ 内容方向
+- 产出运营团队可以直接执行的交付物
 
-## What this skill does
+## 这个技能做什么
 
-Given an ASIN, the skill helps produce a structured audit that answers four core questions:
-1. Where the listing is losing points
-2. Why it is losing points
-3. What should be fixed first
-4. How the improved copy should be written
+给定一个 ASIN，这个技能会产出一份结构化审计结果，默认回答四个核心问题：
+1. 当前哪里失分
+2. 为什么失分
+3. 应该先改什么
+4. 改完后怎么写
 
-The skill is evidence-first:
-- if data exists, it is treated as evidence
-- if data is missing, it should be marked as `未获取到`
-- assumptions should not be written as facts
-- operational experience should not be disguised as current listing truth
+这个技能坚持“先证据，后判断”：
+- 有数据就写事实
+- 没拿到的数据就标注为 `未获取到`
+- 不把猜测写成事实
+- 不把运营经验伪装成页面现状
 
-## Best fit
+## 适用场景
 
-Use this skill when the user asks for things like:
-- ASIN analysis
-- COSMO audit
-- Rufus readiness review
-- listing rewrite
-- semantic blind spot diagnosis
-- Q&A optimization
-- backend search term rewrite
-- image selling point planning
-- A+ content planning
+当用户提出以下需求时，适合使用本技能：
+- ASIN 分析
+- COSMO 审计
+- Rufus 适配度检查
+- Listing 改写
+- 语义盲区分析
+- Q&A 优化
+- 后台搜索词改写
+- 图片卖点规划
+- A+ 内容规划
 
-Example requests:
+示例请求：
 
 ```text
 请基于真实证据，分析 B0D5NJ1CKG
@@ -50,21 +50,21 @@ Example requests:
 请基于真实证据，分析 B0D5NJ1CKG，输出完整 10 板块 COSMO + Rufus 报告，并给我优化后的标题、5条 Bullet、Backend Search Terms、6条 Q&A、图片卖点和 A+ 方案，结果保存到 OutPut 目录
 ```
 
-## Output structure
+## 输出结构
 
-A full run is expected to cover these 10 sections:
-1. Product overview
-2. Algorithm scorecard
-3. Semantic retrieval blind spot analysis
-4. COSMO node diagnosis
-5. Rufus Q&A readiness test
-6. User behavior signal diagnosis
-7. Competitor differentiation extractability
-8. Improvement priority plan
-9. Optimized copy
-10. Image selling points and A+ concept plan
+一次完整运行通常覆盖以下 10 个板块：
+1. 产品概览
+2. 算法评分卡
+3. 语义检索盲区分析
+4. COSMO 节点诊断
+5. Rufus 问答能力测试
+6. 用户行为信号诊断
+7. 竞品差异化可提取性
+8. 改进优先级方案
+9. 优化后文案
+10. 图片卖点与 A+ 创意方案
 
-## Repository structure
+## 仓库结构
 
 ```text
 BSC-Amazon-Rufus-Cosmo/
@@ -79,84 +79,84 @@ BSC-Amazon-Rufus-Cosmo/
    └─ <ASIN>/
 ```
 
-## Requirements
+## 使用前准备
 
-Before using the skill, confirm the following:
-- Claude Code is available in your environment
-- the skill folder is available locally
-- `sorftime` MCP is configured for product facts, reviews, and competitor keyword evidence
-- `sif-mcp` is configured for advertising, traffic, trend, and business evidence
-- if Feishu sync is needed, `lark-cli` is installed and logged in
+在使用本技能前，请确认以下条件：
+- 当前环境可以使用 Claude Code
+- 本技能目录已在本地可访问
+- 已配置 `sorftime` MCP，用于产品事实、评论和竞品关键词证据
+- 已配置 `sif-mcp`，用于广告、流量、趋势和经营数据证据
+- 如果需要同步飞书，已安装并登录 `lark-cli`
 
-Common local MCP config locations used in this workflow:
+本工作流中常见的 MCP 配置路径：
 - `D:\ClaudeCode\Amazon-COSMO\.mcp.json`
 - `C:\Users\Administrator\.claude\settings.json`
 
-Recommended check commands:
+建议先检查：
 
 ```bash
 claude mcp list
 lark-cli auth status
 ```
 
-## Usage
+## 使用方法
 
-Start with a direct ASIN request in Claude Code.
+在 Claude Code 中，直接给出 ASIN 即可开始。
 
-Minimal prompt:
+最简单的提示词：
 
 ```text
 分析 B0D5NJ1CKG
 ```
 
-Evidence-first prompt:
+证据优先提示词：
 
 ```text
 请基于真实证据，分析 B0D5NJ1CKG，站点 US
 ```
 
-Full deliverable prompt:
+完整交付提示词：
 
 ```text
 请基于真实证据，分析 B0D5NJ1CKG，输出完整 10 板块 COSMO + Rufus 报告，并给我优化后的标题、5条 Bullet、Backend Search Terms、6条 Q&A、图片卖点和 A+ 方案，结果保存到 OutPut 目录
 ```
 
-For more examples, see:
+更多示例可参考：
 - `docs/USAGE.md`
 - `examples/example-prompts.md`
 
-## Output location
+## 输出位置
 
-Generated reports should be stored under:
+生成结果应统一保存到：
 
 ```text
 OutPut/<ASIN>/
 ```
 
-Typical generated files may include:
+常见输出文件包括：
 - `feishu_clean_report.md`
 - `section1_2.md`
 - `section7_8.md`
 - `section9.md`
 - `section10.md`
-- other generated report artifacts
+- 其他过程产物或报告文件
 
-## Rules this skill follows
+## 本技能遵循的规则
 
-- evidence first, then judgment
-- mark missing fields as `未获取到`
-- do not turn assumptions into facts
-- do not write advertising or business conclusions as certainties when business evidence is unavailable
-- do not write secrets, tokens, authorization headers, or cookies into reports
-- do not fall back to legacy HTML template output
+- 先取证，再判断
+- 缺失字段标注为 `未获取到`
+- 不把猜测写成事实
+- 缺少经营证据时，不把广告或业务判断写成确定结论
+- 不把 token、Authorization header、cookie 等敏感信息写入报告
+- 不回退到旧的 HTML 模板输出流程
 
-## Notes
+## 说明
 
-- The local Markdown files under `OutPut/<ASIN>/` are treated as the source artifacts.
-- If Feishu is used, the Feishu document is only the synced delivery form.
-- If `sorftime` is unavailable, missing evidence should stay explicitly marked as `未获取到`.
-- If `sif-mcp` is unavailable, business-side conclusions should remain non-definitive.
+- `OutPut/<ASIN>/` 下的本地 Markdown 文件是源文件。
+- 如果同步飞书，飞书文档只是交付形态，不是唯一源文件。
+- 如果 `sorftime` 不可用，缺失证据应明确保留为 `未获取到`。
+- 如果 `sif-mcp` 不可用，经营侧判断应保持非确定性表达。
 
 ## License
 
-See `LICENSE`.
+详见 `LICENSE`。
