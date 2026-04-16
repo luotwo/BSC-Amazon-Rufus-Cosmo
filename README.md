@@ -1,11 +1,14 @@
 # BSC-Amazon-Rufus-Cosmo
 
-一个面向新手的 Claude Code 技能，用来分析 Amazon ASIN 在 `COSMO + Rufus + Listing 转化` 上的表现，并输出可以直接落地的改写建议。
+一个面向新手的 Claude Code+SofttimeMCP+Sif MCP 技能，用来分析 Amazon ASIN 在 `COSMO + Rufus + Listing 转化` 上的表现，并输出可以直接落地的改写建议。
 
 你可以把它理解成：
 - 先帮你收集产品、评论、关键词、经营侧证据
 - 再判断这个 Listing 是曝光差、点击差、转化差，还是预期错配
 - 最后直接给出标题、Bullet、Q&A、Backend Search Terms、图片卖点、A+ 方案
+<img width="313" height="676" alt="image" src="https://github.com/user-attachments/assets/2e41475a-e72c-4ed4-9e09-bd71db131209" />
+<img width="384" height="1103" alt="image" src="https://github.com/user-attachments/assets/07db4850-76e5-4c27-83a9-d8ea02c06649" />
+
 
 如果你平时会说这些话，这个技能就适合你：
 - 分析这个 ASIN
@@ -300,7 +303,10 @@ OutPut/B0D5NJ1CKG/
 如果你想继续看更细的说明，可以再看：
 - `docs/USAGE.md`
 - `examples/example-prompts.md`
-
+如果需要了解，共创，学习相关亚马逊运营Skill，请添加我们公众号和相关联系方式，进行分享相关亚马逊相关运营Skill源文件
+![9f453825a605ac5a92149be126636dc4](https://github.com/user-attachments/assets/9680fd49-0f0f-4642-8601-462ca28f1c77)
+![微信图片_20260409165035_4249_87](https://github.com/user-attachments/assets/16305816-7646-416e-9c37-e132bd592fa7)
+---<img width="844" height="376" alt="image" src="https://github.com/user-attachments/assets/0c809a29-8dad-4fd0-b5ce-d439e250a60a" />
 ## License
 
 详见 `LICENSE`。
